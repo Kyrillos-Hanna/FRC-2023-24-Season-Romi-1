@@ -11,6 +11,7 @@ import frc.robot.subsystems.RomiDrivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.MoveForward;
 import frc.robot.commands.MoveWithController;
+import edu.wpi.first.wpilibj2.command.Commands;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -31,6 +32,7 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
+    m_romiDrivetrain.setDefaultCommand(Commands.run(() -> m_romiDrivetrain.arcadeDrive(m_XboxController.getLeftY(), m_XboxController.getRightX())), m_romiDrivetrain);
   }
 
   /**
@@ -39,7 +41,9 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
-  private void configureButtonBindings() {}
+  private void configureButtonBindings() {
+    
+  }
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
